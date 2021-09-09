@@ -1,1 +1,7 @@
+1. Funkcijų ir procedūrų standartai
+1.1 Pirmieji riestiniai skliausteliai toje pačioje eilutėje, kaip ir 
+    funkcijos/procedūros pavadinimas ir argumentai. Pvz.:
+    int main () {
+        <...>
+    }
 
