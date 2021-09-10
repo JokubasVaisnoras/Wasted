@@ -4,4 +4,5 @@
     int main () {
         <...>
     }
+1.2 Po kiekvieno žodžio eina tarpas (pvz int var = 10, o negalima daryti int var=10)
 
