@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "dgSpecHash": "zj/U96BxRKaKMwpL8uqTGbhonH3/agIFBnlUdgdtzhxdIvMas/6YkPLNCrYLULQJDw93wFOYtamZXXt93QZIcA==",
+  "success": false,
+  "projectFilePath": "C:\\Wasted_project\\Wasted\\wasted_app\\wasted_app\\wasted_app.iOS\\wasted_app.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "Unable to find package System.Numerics.Vectors. No packages exist with this id in source(s): Microsoft Visual Studio Offline Packages",
+      "libraryId": "System.Numerics.Vectors",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    }
+  ]
+}
