@@ -9,8 +9,10 @@ namespace wasted_app.ViewModels
 {
     public class NewItemViewModel : BaseViewModel
     {
-        private string text;
+        private string product;
         private string description;
+        private string price;
+        private string expiration;
 
         public NewItemViewModel()
         {
@@ -22,20 +24,32 @@ namespace wasted_app.ViewModels
 
         private bool ValidateSave()
         {
-            return !String.IsNullOrWhiteSpace(text)
-                && !String.IsNullOrWhiteSpace(description);
+            return !String.IsNullOrWhiteSpace(product)
+                && !String.IsNullOrWhiteSpace(description)
+                && !String.IsNullOrWhiteSpace(price)
+                && !String.IsNullOrWhiteSpace(expiration);
         }
 
-        public string Text
+        public string Product
         {
-            get => text;
-            set => SetProperty(ref text, value);
+            get => product;
+            set => SetProperty(ref product, value);
         }
 
         public string Description
         {
             get => description;
             set => SetProperty(ref description, value);
+        }
+        public string Price
+        {
+            get => price;
+            set => SetProperty(ref price, value);
+        }
+        public string Expiration
+        {
+            get => expiration;
+            set => SetProperty(ref expiration, value);
         }
 
         public Command SaveCommand { get; }
@@ -52,8 +66,10 @@ namespace wasted_app.ViewModels
             Item newItem = new Item()
             {
                 Id = Guid.NewGuid().ToString(),
-                Text = Text,
-                Description = Description
+                Product = Product,
+                Description = Description,
+                Price = Price,
+                Expiration = Expiration
             };
 
             await DataStore.AddItemAsync(newItem);

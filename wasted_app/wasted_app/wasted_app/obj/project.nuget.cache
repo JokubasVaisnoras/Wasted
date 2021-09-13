@@ -1,30 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "ffzc51Le9CBdguikM5V9fynFUZmz7nhBaQLQuu6+oly/gWqmqaCpOAnwANJd9d+rzrv4ySZd9wcGpg4+Mb2ZQA==",
-  "success": false,
-  "projectFilePath": "C:\\Wasted_project\\Wasted\\wasted_app\\wasted_app\\wasted_app\\wasted_app.csproj",
+  "dgSpecHash": "1S9j0fyKvbGn4sgwNajzwvSF07V2IQrUgiMtMxtnbL8eyuEhH5jUPwUAb1l3DxhdqjTMlCGTirXcn3U224iC9A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Augistina\\Documents\\GitHub\\Wasted\\wasted_app\\wasted_app\\wasted_app\\wasted_app.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Augistina\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Augistina\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Augistina\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1102",
-      "level": "Error",
-      "message": "Unable to find package NETStandard.Library with version (>= 2.0.3)\r\n  - Found 2 version(s) in Microsoft Visual Studio Offline Packages [ Nearest version: 2.0.0 ]",
-      "libraryId": "NETStandard.Library",
-      "targetGraphs": [
-        ".NETStandard,Version=v2.0"
-      ]
-    },
-    {
-      "code": "NU1101",
-      "level": "Error",
-      "message": "Unable to find package System.Numerics.Vectors. No packages exist with this id in source(s): Microsoft Visual Studio Offline Packages",
-      "libraryId": "System.Numerics.Vectors",
-      "targetGraphs": [
-        ".NETStandard,Version=v2.0"
-      ]
-    }
-  ]
+  "logs": []
 }
