@@ -10,20 +10,41 @@ namespace wasted_app.ViewModels
     public class ItemDetailViewModel : BaseViewModel
     {
         private string itemId;
-        private string text;
+        private string product;
         private string description;
+        private double price;
+        private string expiration;
+        private string type;
         public string Id { get; set; }
 
-        public string Text
+        public string Product
         {
-            get => text;
-            set => SetProperty(ref text, value);
+            get => product;
+            set => SetProperty(ref product, value);
         }
 
         public string Description
         {
             get => description;
             set => SetProperty(ref description, value);
+        }
+
+        public double Price
+        {
+            get => price;
+            set => SetProperty(ref price, value);
+        }
+
+        public string Expiration
+        {
+            get => expiration;
+            set => SetProperty(ref expiration, value);
+        }
+
+        public string Type
+        {
+            get => type;
+            set => SetProperty(ref type, value);
         }
 
         public string ItemId
@@ -45,8 +66,11 @@ namespace wasted_app.ViewModels
             {
                 var item = await DataStore.GetItemAsync(itemId);
                 Id = item.Id;
-                Text = item.Text;
+                Product = item.Product;
                 Description = item.Description;
+                Price = item.Price;
+                Expiration = item.Expiration;
+                Type = item.Type;
             }
             catch (Exception)
             {
