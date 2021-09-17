@@ -5,10 +5,16 @@
              Title="{Binding Title}">
 
     <StackLayout Spacing="20" Padding="15">
-        <Label Text="Text:" FontSize="Medium" />
-        <Label Text="{Binding Text}" FontSize="Small"/>
+        <Label Text="Product:" FontSize="Medium" />
+        <Label Text="{Binding Product}" FontSize="Small"/>
+        <Label Text="Type:" FontSize="Medium" />
+        <Label Text="{Binding Type}" FontSize="Small"/>
         <Label Text="Description:" FontSize="Medium" />
         <Label Text="{Binding Description}" FontSize="Small"/>
+        <Label Text="Price:" FontSize="Medium" />
+        <Label Text="{Binding Price, StringFormat='{0} eur'}" FontSize="Small"/>
+        <Label Text="Expiration:" FontSize="Medium" />
+        <Label Text="{Binding Expiration}" FontSize="Small"/>
     </StackLayout>
     
 </ContentPage>
