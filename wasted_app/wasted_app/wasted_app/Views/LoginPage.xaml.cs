@@ -1,9 +1,13 @@
-﻿using System;
+using SQLite;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using wasted_app.Tables;
 using wasted_app.ViewModels;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,22 +18,32 @@ namespace wasted_app.Views
     {
         public LoginPage()
         {
-            var vm = new LoginViewModel();
-            this.BindingContext = vm;
-            vm.DisplayInvalidLoginPrompt += () => DisplayAlert("Error", "Invalid Login, try again", "OK");
             InitializeComponent();
+        }
 
-            Email.Completed += (object sender, EventArgs e) =>
-            {
-                Password.Focus();
-            };
+       async void Handle_Clicked(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new RegistrationPage());
+        }
 
-            Password.Completed += (object sender, EventArgs e) =>
+        async void Handle_Clicked_1(object sender, System.EventArgs e)
+        {
+            var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "UserDatabase.db");
+            var db = new SQLiteConnection(dbpath);
+            var myquery = db.Table<RegUserTable>().Where(u => u.Username.Equals(EntryUser.Text) && u.Password.Equals(EntryPassword.Text)).FirstOrDefault();
+
+            if(myquery!=null)
             {
-                vm.SubmitCommand.Execute(null);
-            };
-            // InitializeComponent();
-            // this.BindingContext = new LoginViewModel();
+                App.Current.MainPage = new AppShell();
+            }
+
+            else
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    var result = await this.DisplayAlert("ERROR", "Incorrect username/password", "Yes", "Cancel");
+                });
+            }
         }
     }
 }
