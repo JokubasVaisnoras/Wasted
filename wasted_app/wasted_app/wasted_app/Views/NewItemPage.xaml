@@ -8,16 +8,25 @@
              ios:Page.UseSafeArea="true">
     <ContentPage.Content>
         <StackLayout Spacing="3" Padding="15">
-            <Label Text="Product" FontSize="Medium" />
-            <Entry Text="{Binding Product, Mode=TwoWay}" FontSize="Medium" />
+            <Label Text="Name" FontSize="Medium" />
+            <Entry Text="{Binding Name, Mode=TwoWay}" FontSize="Medium" />
+            <Label Text="Type1" FontSize="Medium" />
+            <Picker x:Name="typePicker" Title="Select item type" SelectedItem="{Binding Type1, Mode=TwoWay}" SelectedIndexChanged="OnModeChosen">
+                <Picker.Items>
+                    <x:String>Product</x:String>
+                    <x:String>Prepared meal</x:String>
+                    <x:String>Package</x:String>
+                </Picker.Items>
+            </Picker>
+            <Picker x:Name="type2Picker" Title="Select another type" IsEnabled="False" SelectedItem="{Binding Type2, Mode=TwoWay}"/>
             <Label Text="Description" FontSize="Medium" />
             <Editor Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
-            <Label Text="Price" FontSize="Medium" />
+            <Label Text="Amount" FontSize="Medium" />
+            <Editor Text="{Binding Amount, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+            <Label Text="Price per item" FontSize="Medium" />
             <Editor Text="{Binding Price, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
             <Label Text="Expiration" FontSize="Medium" />
             <Editor Text="{Binding Expiration, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
-            <Label Text="Type" FontSize="Medium" />
-            <Editor Text="{Binding Type, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
             <StackLayout Orientation="Horizontal">
                 <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
                 <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>

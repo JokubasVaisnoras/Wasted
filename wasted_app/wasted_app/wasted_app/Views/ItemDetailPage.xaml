@@ -5,20 +5,18 @@
              Title="{Binding Title}">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add to cart" />
+        <ToolbarItem Text="Edit" />
+        <ToolbarItem Text="Delete" />
     </ContentPage.ToolbarItems>
-    
+
     <StackLayout Spacing="20" Padding="15">
-        <Label Text="Product:" FontSize="Medium" />
-        <Label Text="{Binding Product}" FontSize="Small"/>
-        <Label Text="Type:" FontSize="Medium" />
-        <Label Text="{Binding Type}" FontSize="Small"/>
-        <Label Text="Description:" FontSize="Medium" />
-        <Label Text="{Binding Description}" FontSize="Small"/>
-        <Label Text="Price:" FontSize="Medium" />
-        <Label Text="{Binding Price, StringFormat='{0} eur'}" FontSize="Small"/>
-        <Label Text="Expiration:" FontSize="Medium" />
-        <Label Text="{Binding Expiration}" FontSize="Small"/>
+        <Label Text="{Binding Name}" FontSize="40" FontAttributes="Bold"/>
+        <Label Text="{Binding Type1}" FontSize="Small"/>
+        <Label Text="{Binding Type2}" FontSize="Small"/>
+        <Label Text="{Binding Amount, StringFormat='Available amount: {0}'}" FontSize="Medium"/>
+        <Label Text="{Binding Price, StringFormat='Price: {0} eur'}" FontSize="Medium"/>
+        <Label Text="{Binding Expiration, StringFormat='Expiration: {0}'}" FontSize="Medium"/>
+        <Label Text="{Binding Description, StringFormat='Description: {0}'}" FontSize="Medium"/>
     </StackLayout>
     
 </ContentPage>
