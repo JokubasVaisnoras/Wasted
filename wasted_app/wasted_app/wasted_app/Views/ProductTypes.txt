@@ -1,0 +1,8 @@
+﻿Fruits
+Vegetables
+Dairy products
+Nuts & seeds
+Meat
+Eggs
+Seafood
+Other

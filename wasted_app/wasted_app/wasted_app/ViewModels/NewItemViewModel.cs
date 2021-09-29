@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using wasted_app.Models;
@@ -9,11 +11,13 @@ namespace wasted_app.ViewModels
 {
     public class NewItemViewModel : BaseViewModel
     {
-        private string product;
+        private string name;
         private string description;
         private double price;
         private string expiration;
-        private string type;
+        private string type1;
+        private string type2;
+        private int amount;
 
         public NewItemViewModel()
         {
@@ -25,16 +29,18 @@ namespace wasted_app.ViewModels
 
         private bool ValidateSave()
         {
-            return !String.IsNullOrWhiteSpace(product)
+            return !String.IsNullOrWhiteSpace(name)
                 && !String.IsNullOrWhiteSpace(description)
                 && !String.IsNullOrWhiteSpace(expiration)
-                && !String.IsNullOrWhiteSpace(type);
+                && !String.IsNullOrWhiteSpace(type1)
+                && !String.IsNullOrWhiteSpace(type2)
+                && 0 < amount && amount < 20;
         }
 
-        public string Product
+        public string Name
         {
-            get => product;
-            set => SetProperty(ref product, value);
+            get => name;
+            set => SetProperty(ref name, value);
         }
 
         public string Description
@@ -55,10 +61,22 @@ namespace wasted_app.ViewModels
             set => SetProperty(ref expiration, value);
         }
 
-        public string Type
+        public string Type1
         {
-            get => type;
-            set => SetProperty(ref type, value);
+            get => type1;
+            set => SetProperty(ref type1, value);
+        }
+
+        public string Type2
+        {
+            get => type2;
+            set => SetProperty(ref type2, value);
+        }
+
+        public int Amount
+        {
+            get => amount;
+            set => SetProperty(ref amount, value);
         }
 
         public Command SaveCommand { get; }
@@ -75,11 +93,13 @@ namespace wasted_app.ViewModels
             Item newItem = new Item()
             {
                 Id = Guid.NewGuid().ToString(),
-                Product = Product,
+                Name = Name,
                 Description = Description,
                 Price = Price,
                 Expiration = Expiration,
-                Type = Type
+                Type1 = Type1,
+                Type2 = Type2,
+                Amount = Amount
             };
 
             await DataStore.AddItemAsync(newItem);
@@ -87,5 +107,6 @@ namespace wasted_app.ViewModels
             // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");
         }
+
     }
 }

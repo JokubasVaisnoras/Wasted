@@ -1,0 +1,14 @@
+﻿Appetizers
+Desserts
+Fast food
+Meat
+Noodles
+Pies
+Salads
+Sandwiches
+Sauces
+Seafood
+Snaks
+Soups
+Stews
+Other

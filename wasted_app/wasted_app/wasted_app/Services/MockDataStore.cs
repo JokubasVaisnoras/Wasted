@@ -14,7 +14,7 @@ namespace wasted_app.Services
         {
             items = new List<Item>()
             {
-                new Item { Id = Guid.NewGuid().ToString(), Product = "Milk", Description = "From local cows. 3 litres", Price = 2, Expiration = "2021-09-20", Type = "Dairy" },
+                new Item { Id = Guid.NewGuid().ToString(), Name = "Milk", Description = "From local cows. 3 litres", Price = 2, Expiration = "2021-09-20", Type1 = "Product", Type2 = "Dairy", Amount = 5 },
             };
         }
 
