@@ -16,5 +16,10 @@ namespace wasted_app.Views
         {
             InitializeComponent();
         }
+        
+        private async void Button_Clicked(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new PaymentPage());
+        }
     }
 }
