@@ -32,7 +32,7 @@
         </Entry>
 
 
-        <Label Text="Stripe Payment Gateway"
+        <Label Text="Enter to pay"
                FontAttributes="Bold"
                Grid.ColumnSpan="2"
                Grid.Row="1"
