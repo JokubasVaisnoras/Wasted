@@ -87,7 +87,6 @@
                 Grid.Row="6"
                 Grid.ColumnSpan="2"
                 TextColor="White"
-                HeightRequest="50"
-                Command=""/>
+                HeightRequest="50"/>
     </Grid>
 </ContentPage>
