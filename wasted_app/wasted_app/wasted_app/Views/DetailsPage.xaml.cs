@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +12,20 @@ namespace wasted_app.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetailsPage : ContentPage
     {
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            var obj = App.Current as App;
+            username.Text = obj.username;
+            phonenumber.Text = obj.phonenumber;
+            email.Text = obj.email;
+        }
+
         public DetailsPage()
         {
             InitializeComponent();
+            
             BindingContext = new DetailsPageViewModel(Navigation);
         }
     }
