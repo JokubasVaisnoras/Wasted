@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 using wasted_app.Views;
@@ -20,12 +21,12 @@ namespace wasted_app.ViewModels
         public DetailsPageViewModel(INavigation navigation)
         {
             _navigation = navigation;
-            LogoutCommand = new Command(() => ResetUserInfo());
+            LogoutCommand = new Command(() => ResetUserInfoAsync());
         }
-        void ResetUserInfo()
+        async Task ResetUserInfoAsync()
         {
-            _navigation.PushAsync(new LoginPage());
-            
+            await Shell.Current.GoToAsync("//LoginPage");
+
         }
     }
 }

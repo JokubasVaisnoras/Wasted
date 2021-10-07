@@ -34,6 +34,12 @@ namespace wasted_app.Views
 
             if(myquery!=null)
             {
+                var obj = App.Current as App;
+
+                obj.username = myquery.Username;
+                obj.email = myquery.Email;
+                obj.phonenumber = myquery.PhoneNumber;
+
                 App.Current.MainPage = new AppShell();
             }
 

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 BackgroundColor="#EEEEEE" 
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
@@ -9,15 +9,15 @@ x:Class="wasted_app.Views.DetailsPage">
             <StackLayout Spacing="25">
                 <StackLayout>
                     <Label Text="User Name:" Font="18" TextColor="Black" HorizontalOptions="FillAndExpand" />
-                    <Label Text="{Binding UserName}" HorizontalOptions="FillAndExpand" TextColor="Gray" />
+                    <Label x:Name="username" HorizontalOptions="FillAndExpand" TextColor="Gray" />
                 </StackLayout>
                 <StackLayout>
                     <Label Text="Mobile Number:" Font="18" HorizontalOptions="FillAndExpand" TextColor="Black" />
-                    <Label Text="{Binding MobileNumber}" HorizontalOptions="FillAndExpand" TextColor="Gray" />
+                    <Label x:Name="phonenumber" HorizontalOptions="FillAndExpand" TextColor="Gray" />
                 </StackLayout>
                 <StackLayout>
                     <Label Text="Email Address:" Font="18" HorizontalOptions="FillAndExpand" TextColor="Black" />
-                    <Label Text="{Binding Email}" HorizontalOptions="FillAndExpand" TextColor="Gray" />
+                    <Label x:Name="email" HorizontalOptions="FillAndExpand" TextColor="Gray" />
                 </StackLayout>
             </StackLayout>
             <Button Text="Logout" TextColor="#533F95" BackgroundColor="Transparent" WidthRequest="100" FontAttributes="Bold" BorderColor="#533F95" BorderWidth="1" BorderRadius="10" HorizontalOptions="EndAndExpand" Command="{Binding LogoutCommand}" />
