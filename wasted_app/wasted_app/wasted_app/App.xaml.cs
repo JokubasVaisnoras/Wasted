@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using wasted_app.Services;
 using wasted_app.Views;
 using Xamarin.Forms;
@@ -8,6 +8,9 @@ namespace wasted_app
 {
     public partial class App : Application
     {
+        public string username { get; set; }
+        public string email { get; set; }
+        public string phonenumber { get; set; }
 
         public App()
         {
