@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:wasted_app.ViewModels" x:DataType="viewmodels:ItemDetailViewModel"
              x:Class="wasted_app.Views.ItemDetailPage"
              Title="{Binding Title}">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Edit" />
-        <ToolbarItem Text="Delete" />
+        <ToolbarItem Text="Delete" Clicked="OnItemClicked"/>
     </ContentPage.ToolbarItems>
 
     <StackLayout Spacing="20" Padding="15">
