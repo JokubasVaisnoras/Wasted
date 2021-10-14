@@ -10,18 +10,16 @@ using Xamarin.Forms;
 
 namespace wasted_app.ViewModels
 {
-    public class DetailsPageViewModel 
-    {
-        public INavigation _navigation;
+    public class DetailsPageViewModel
+    { 
         public ICommand LogoutCommand
         {
             get;
             private set;
         }
-        public DetailsPageViewModel(INavigation navigation)
+        public DetailsPageViewModel()
         {
-            _navigation = navigation;
-            LogoutCommand = new Command(() => ResetUserInfoAsync());
+            LogoutCommand = new Command(async () => await ResetUserInfoAsync());
         }
         async Task ResetUserInfoAsync()
         {
