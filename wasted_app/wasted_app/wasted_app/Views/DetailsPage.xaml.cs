@@ -26,7 +26,7 @@ namespace wasted_app.Views
         {
             InitializeComponent();
             
-            BindingContext = new DetailsPageViewModel(Navigation);
+            BindingContext = new DetailsPageViewModel();
         }
     }
 }
