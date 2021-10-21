@@ -1,6 +1,9 @@
-﻿using System;
+﻿using SQLite;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.IO;
 using System.Threading.Tasks;
 using wasted_app.Models;
 using wasted_app.Views;
@@ -21,6 +24,7 @@ namespace wasted_app.ViewModels
         {
             Title = "Shop";
             Items = new ObservableCollection<Item>();
+            
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
             ItemTapped = new Command<Item>(OnItemSelected);
@@ -36,10 +40,26 @@ namespace wasted_app.ViewModels
             {
                 Items.Clear();
                 var items = await DataStore.GetItemsAsync(true);
-                foreach (var item in items)
+                /*foreach (var item in items)
                 {
                     Items.Add(item);
+                }*/
+                var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "ItemsDatabase.db");
+
+                using (var db = new SQLiteConnection(dbpath))
+                {
+                    db.CreateTable<Item>();
+                    var itemsList = db.Table<Item>().ToList();
+                    foreach (var item in itemsList)
+                    {
+                        Items.Add(item);
+                    }
                 }
+                /*IFormatter formatter = new BinaryFormatter();
+                string txtpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "items.txt");
+                Stream stream = new FileStream(txtpath, FileMode.Open, FileAccess.Read, FileShare.Read);
+                items = (Item)formatter.Deserialize(stream);
+                stream.Close();*/
             }
             catch (Exception ex)
             {

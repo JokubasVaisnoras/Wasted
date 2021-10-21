@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace wasted_app.Models
-{
+{   
     public class Item
     {
         public string Id { get; set; }
