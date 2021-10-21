@@ -26,31 +26,30 @@ namespace wasted_app.Views
 
         private static Regex StringNumber()
         {
-            string StringAndNumber_Pattern = "^[a-zA-Z][a-zA-Z0-9]{5,11}";
+            string StringAndNumber_Pattern = "^(?=.{6,12}$)(?![_.])(?!.*[_.]{2})[a-z0-9._]+(?<![_.])$";
 
             return new Regex(StringAndNumber_Pattern, RegexOptions.IgnoreCase);
         }
 
-        //Method for validating email address
         private static Regex Email_Address()
         {
             string Email_Pattern = @"^(?!\.)(""([^""\r\\]|\\[""\r\\])*""|"
                 + @"([-a-z0-9!#$%&'*+/=?^_`{|}~]|(?<!\.)\.)*)(?<!\.)"
                 + @"@[a-z0-9][\w\.-]*[a-z0-9]\.[a-z][a-z\.]*[a-z]$";
 
-            return new Regex(Email_Pattern, RegexOptions.IgnoreCase);
+            return new Regex(Email_Pattern);
         }
 
         private static Regex NumbersOnly()
         {
-            string StringAndNumber_Pattern = "^[0-9]*$";
+            string StringAndNumber_Pattern = "^(?=.{6,12}$)[0-9]*$";
 
-            return new Regex(StringAndNumber_Pattern, RegexOptions.IgnoreCase);
+            return new Regex(StringAndNumber_Pattern);
         }
 
         private static Regex ValidPassword()
         {
-            string Password_Pattern = "(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,15})$";
+            string Password_Pattern = "(?!^[0-9]*$)(?!^[a-z]*$)^([a-z0-9]{8,15})$";
 
             return new Regex(Password_Pattern, RegexOptions.IgnoreCase);
         }
@@ -64,10 +63,9 @@ namespace wasted_app.Views
                 var result = DisplayAlert("Invalid", "Phone number field cannot be empty!", "Yes", "Cancel");
                 return;
             }
-
             else if (Valid_Contact.IsMatch(EntryUserPhoneNumber.Text) != true)
             {
-                var result = DisplayAlert("Invalid", "Contact accept numbers only.", "Yes", "Cancel");
+                var result = DisplayAlert("Invalid", "Enter a valid phone number.", "Yes", "Cancel");
                 return;
             }
 
@@ -77,12 +75,11 @@ namespace wasted_app.Views
                 var result = DisplayAlert("Invalid", "Username cannot be empty!", "Yes", "Cancel");
                 return;
             }
-            else if (Valid_Username.IsMatch(EntryUsername.Text))
+            else if (Valid_Username.IsMatch(EntryUsername.Text) != true)
             {
-                var result = DisplayAlert("Invalid", "Length between 6 to 12", "Yes", "Cancel");
+                var result = DisplayAlert("Invalid", "Username length is between 6 to 12", "Yes", "Cancel");
                 return;
             }
-
 
             //for password
             if (EntryUserPassword.Text == null)
@@ -92,10 +89,9 @@ namespace wasted_app.Views
             }
             else if (Valid_Password.IsMatch(EntryUserPassword.Text) != true)
             {
-                var result = DisplayAlert("Password must be atleast 8 to 15 characters.", "It contains atleast one Upper case and numbers.", "Yes", "Cancel");
+                var result = DisplayAlert("Password must be atleast 8 to 15 characters.", "It must contain letters and numbers.", "Yes", "Cancel");
                 return;
             }
-
 
             //for Email Address
             if (EntryUserEmail.Text == null)
@@ -109,7 +105,6 @@ namespace wasted_app.Views
                 return;
             }
 
-
             var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "UserDatabase.db");
             var db = new SQLiteConnection(dbpath);
             db.CreateTable<RegUserTable>();
@@ -120,7 +115,6 @@ namespace wasted_app.Views
                 Password = EntryUserPassword.Text,
                 Email = EntryUserEmail.Text,
                 PhoneNumber = EntryUserPhoneNumber.Text
-
             };
 
             db.Insert(item);
