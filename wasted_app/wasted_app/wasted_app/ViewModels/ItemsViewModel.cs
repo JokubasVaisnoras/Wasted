@@ -20,6 +20,18 @@ namespace wasted_app.ViewModels
         public Command AddItemCommand { get; }
         public Command<Item> ItemTapped { get; }
 
+        /*private ICommand _searchCommand;
+        public ICommand SearchCommand
+        {
+            get
+            {
+                return _searchCommand ?? (_searchCommand = new Command<string>((text) =>
+                {
+                    // The text parameter can now be used for searching.
+                }));
+            }
+        }
+        */
         public ItemsViewModel()
         {
             Title = "Review your items";
