@@ -26,7 +26,7 @@ namespace wasted_app.Views
 
         private static Regex StringNumber()
         {
-            string StringAndNumber_Pattern = "^(?=.{6,12}$)(?![_.])(?!.*[_.]{2}).])$";
+            string StringAndNumber_Pattern = "^(?=.{6,12}$)(?![_.])(?!.*[_.]{2})[a-z0-9._]+(?<![_.])$";
 
             return new Regex(StringAndNumber_Pattern, RegexOptions.IgnoreCase);
         }
@@ -60,12 +60,12 @@ namespace wasted_app.Views
             //for Contacts
             if (EntryUserPhoneNumber.Text == null)
             {
-                var result = DisplayAlert("Invalid", "field cannot be empty!", "Yes", "Cancel");
+                var result = DisplayAlert("Invalid", "Phone number field cannot be empty!", "Yes", "Cancel");
                 return;
             }
             else if (Valid_Contact.IsMatch(EntryUserPhoneNumber.Text) != true)
             {
-                var result = DisplayAlert("Invalid", "Enter a valid number.", "Yes", "Cancel");
+                var result = DisplayAlert("Invalid", "Enter a valid phone number.", "Yes", "Cancel");
                 return;
             }
 
@@ -77,7 +77,7 @@ namespace wasted_app.Views
             }
             else if (Valid_Username.IsMatch(EntryUsername.Text) != true)
             {
-                var result = DisplayAlert("Invalid", "length is between 6 to 12", "Yes", "Cancel");
+                var result = DisplayAlert("Invalid", "Username length is between 6 to 12", "Yes", "Cancel");
                 return;
             }
 
