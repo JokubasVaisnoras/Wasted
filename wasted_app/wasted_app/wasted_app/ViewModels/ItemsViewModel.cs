@@ -22,7 +22,7 @@ namespace wasted_app.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "Shop";
+            Title = "Review your items";
             Items = new ObservableCollection<Item>();
             
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
@@ -40,19 +40,16 @@ namespace wasted_app.ViewModels
             {
                 Items.Clear();
                 var items = await DataStore.GetItemsAsync(true);
-                /*foreach (var item in items)
-                {
-                    Items.Add(item);
-                }*/
+                
                 var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "ItemsDatabase.db");
 
                 using (var db = new SQLiteConnection(dbpath))
                 {
                     db.CreateTable<Item>();
                     var itemsList = db.Table<Item>().ToList();
-                    foreach (var item in itemsList)
+                    foreach (Object item in itemsList)
                     {
-                        Items.Add(item);
+                        Items.Add((Item)item);
                     }
                 }
                 /*IFormatter formatter = new BinaryFormatter();
