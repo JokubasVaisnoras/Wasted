@@ -20,7 +20,7 @@ x:Class="wasted_app.Views.DetailsPage">
                     <Label x:Name="email" HorizontalOptions="FillAndExpand" TextColor="Gray" />
                 </StackLayout>
             </StackLayout>
-            <Button Text="Logout" TextColor="#533F95" BackgroundColor="Transparent" WidthRequest="100" FontAttributes="Bold" BorderColor="#533F95" BorderWidth="1" BorderRadius="10" HorizontalOptions="EndAndExpand" Command="{Binding LogoutCommand}" />
+            <Button Text="Logout" TextColor="#533F95" BackgroundColor="Transparent" WidthRequest="100" FontAttributes="Bold" BorderColor="#533F95" BorderWidth="1" BorderRadius="10" HorizontalOptions="EndAndExpand" Clicked="OnMenuItemClicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage> 
