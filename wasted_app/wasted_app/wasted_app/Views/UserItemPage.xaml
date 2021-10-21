@@ -13,7 +13,9 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Padding="10" x:DataType="model:Item">
-                            <Label Text="{Binding Name}" 
+                        <SearchBar x:Name="SearchBar" Placeholder ="search..." />
+
+                        <Label Text="{Binding Name}" 
                             LineBreakMode="NoWrap" 
                             Style="{DynamicResource ListItemTextStyle}" 
                             FontSize="16" />
