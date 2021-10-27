@@ -11,6 +11,10 @@ using Xamarin.Forms;
 
 namespace wasted_app.ViewModels
 {
+    struct NameShop
+    {
+        public string name_shop;
+    }
     public class ItemsViewModel : BaseViewModel
     {
         private Item _selectedItem;
@@ -34,7 +38,9 @@ namespace wasted_app.ViewModels
         */
         public ItemsViewModel()
         {
-            Title = "Shop";
+            NameShop str = new NameShop();
+            str.name_shop = "Shop";
+            Title = str.name_shop;
             Items = new ObservableCollection<Item>();
             
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
