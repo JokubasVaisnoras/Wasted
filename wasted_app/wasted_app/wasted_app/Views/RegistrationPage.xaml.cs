@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using wasted_app.ViewModels;
 using System.Text.RegularExpressions;
 using System.Text;
@@ -19,45 +19,20 @@ namespace wasted_app.Views
             InitializeComponent();
         }
 
-        static Regex Valid_Username = StringNumber();
-        static Regex Valid_Contact = NumbersOnly();
-        static Regex Valid_Password = ValidPassword();
-        static Regex Valid_Email = Email_Address();
-
-        private static Regex StringNumber()
-        {
-            string StringAndNumber_Pattern = "^(?=.{6,12}$)(?![_.])(?!.*[_.]{2})[a-z0-9._]+(?<![_.])$";
-
-            return new Regex(StringAndNumber_Pattern, RegexOptions.IgnoreCase);
-        }
-
-        private static Regex Email_Address()
-        {
-            string Email_Pattern = @"^(?!\.)(""([^""\r\\]|\\[""\r\\])*""|"
-                + @"([-a-z0-9!#$%&'*+/=?^_`{|}~]|(?<!\.)\.)*)(?<!\.)"
-                + @"@[a-z0-9][\w\.-]*[a-z0-9]\.[a-z][a-z\.]*[a-z]$";
-
-            return new Regex(Email_Pattern);
-        }
-
-        private static Regex NumbersOnly()
-        {
-            string StringAndNumber_Pattern = "^(?=.{6,12}$)[0-9]*$";
-
-            return new Regex(StringAndNumber_Pattern);
-        }
-
-        private static Regex ValidPassword()
-        {
-            string Password_Pattern = "(?!^[0-9]*$)(?!^[a-z]*$)^([a-z0-9]{8,15})$";
-
-            return new Regex(Password_Pattern, RegexOptions.IgnoreCase);
-        }
-
+        public delegate Regex validator(string regex);
 
         void Handle_Clicked(object sender, System.EventArgs e)
         {
+            validator pattern = delegate (string regex)
+            {
+                string x = regex;
+
+                return new Regex(x, RegexOptions.IgnoreCase);
+            };
+
             //for Contacts
+            Regex Valid_Contact = pattern("^(?=.{6,12}$)[0-9]*$");
+
             if (EntryUserPhoneNumber.Text == null)
             {
                 var result = DisplayAlert("Invalid", "Phone number field cannot be empty!", "Yes", "Cancel");
@@ -70,6 +45,8 @@ namespace wasted_app.Views
             }
 
             //for username
+            Regex Valid_Username = pattern("^(?=.{6,12}$)(?![_.])(?!.*[_.]{2})[a-z0-9._]+(?<![_.])$");
+
             if (EntryUsername.Text == null)
             {
                 var result = DisplayAlert("Invalid", "Username cannot be empty!", "Yes", "Cancel");
@@ -82,6 +59,8 @@ namespace wasted_app.Views
             }
 
             //for password
+            Regex Valid_Password = pattern("(?!^[0-9]*$)(?!^[a-z]*$)^([a-z0-9]{8,15})$");
+
             if (EntryUserPassword.Text == null)
             {
                 var result = DisplayAlert("Invalid", "Password cannot be empty!", "Yes", "Cancel");
@@ -94,6 +73,10 @@ namespace wasted_app.Views
             }
 
             //for Email Address
+            Regex Valid_Email = pattern(@"^(?!\.)(""([^""\r\\]|\\[""\r\\])*""|"
+                + @"([-a-z0-9!#$%&'*+/=?^_`{|}~]|(?<!\.)\.)*)(?<!\.)"
+                + @"@[a-z0-9][\w\.-]*[a-z0-9]\.[a-z][a-z\.]*[a-z]$");
+
             if (EntryUserEmail.Text == null)
             {
                 var result = DisplayAlert("Invalid", "Email cannot be empty!", "Yes", "Cancel");
