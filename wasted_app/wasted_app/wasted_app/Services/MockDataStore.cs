@@ -25,7 +25,7 @@ namespace wasted_app.Services
             //items.Add(item);
             var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "ItemsDatabase.db");
             var db = new SQLiteConnection(dbpath);
-            db.CreateTable<Item>(); 
+            db.CreateTable<Item>();
             db.Insert(item);
 
             /*IFormatter formatter = new BinaryFormatter();
