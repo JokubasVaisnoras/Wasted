@@ -25,8 +25,11 @@ namespace wasted_app.Views
         public DetailsPage()
         {
             InitializeComponent();
-            
-            BindingContext = new DetailsPageViewModel();
+        }
+
+        private async void OnMenuItemClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//LoginPage");
         }
     }
 }

@@ -16,32 +16,21 @@ namespace wasted_app.Views
         public UserItemPage()
         {
             InitializeComponent();
+
             BindingContext = _viewModel = new ItemsViewModel();
+            BindingContext = this;
         }
         protected override void OnAppearing()
         {
             base.OnAppearing();
             _viewModel.OnAppearing();
         }
-    }
 
-    public class TextChangedBehavior : Behavior<SearchBar>
-    {
-        protected override void OnAttachedTo(SearchBar bindable)
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
-            base.OnAttachedTo(bindable);
-            bindable.TextChanged += Bindable_TextChanged;
-        }
 
-        protected override void OnDetachingFrom(SearchBar bindable)
-        {
-            base.OnDetachingFrom(bindable);
-            bindable.TextChanged -= Bindable_TextChanged;
-        }
-
-        private void Bindable_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            ((SearchBar)sender).SearchCommand?.Execute(e.NewTextValue);
         }
     }
+
+
 }
