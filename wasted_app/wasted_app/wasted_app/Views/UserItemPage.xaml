@@ -4,12 +4,11 @@
              xmlns:local="clr-namespace:wasted_app.ViewModels" 
              xmlns:model="clr-namespace:wasted_app.Models"
              x:Class="wasted_app.Views.UserItemPage">
-    <StackLayout>
 
-        <SearchBar Placeholder="Search..." TextChanged="SearchBar_TextChanged"/>
+    
         <RefreshView x:DataType="local:ItemsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
-
-        
+        <StackLayout>
+            <SearchBar Placeholder="Search" TextChanged="SearchBar_TextChanged"/>
             <CollectionView x:Name="ItemsListView"
                 ItemsSource="{Binding Items}"
                 SelectionMode="None">
@@ -40,6 +39,7 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </RefreshView>
-    </StackLayout>
+        </StackLayout>
+    </RefreshView>
+    
 </ContentPage>
