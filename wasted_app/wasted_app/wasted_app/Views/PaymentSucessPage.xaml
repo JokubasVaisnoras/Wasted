@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="wasted_app.Views.PaymentSucessPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ScrollView Grid.Row="1">
+                <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                    <Label Text="Thank you for your purchase" FontSize="24"/>
+                    <Label Text="We'd love to hear your feedback. Click below to let us know about your experience from purchasing food from us." FontSize="16" Padding="0,0,0,0"/>
+                    <Button Margin="0,10,0,0" Text="Leave us a review"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+                    <Button Margin="0,10,0,0" Text="Continue shopping"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White"
+                        Clicked="Button_Clicked"/>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+    
