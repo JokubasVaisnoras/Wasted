@@ -27,11 +27,11 @@
                         <Entry Placeholder="PhoneNumber" FontSize="16" x:Name="EntryUserPhoneNumber"/>
                     </StackLayout>
                     <StackLayout Grid.Row="4">
-                        <Button Text="Register" HorizontalOptions="CenterAndExpand" WidthRequest="100" TextColor="White" BackgroundColor="Blue" Clicked="Handle_Clicked"/>
+                        <Button Text="Register" HorizontalOptions="CenterAndExpand" WidthRequest="100" TextColor="White" BackgroundColor="{StaticResource Primary}" Clicked="Handle_Clicked"/>
                     </StackLayout>
 
                 </Grid>
-                <Label Padding="15,24,30,0" Text="Project participants:" FontSize="Large" FontAttributes="Bold" TextColor="#6A9CF7"/>
+                <Label Padding="15,24,30,0" Text="Project participants:" FontSize="Large" FontAttributes="Bold" TextColor="{StaticResource Primary}"/>
                 <ListView x:Name="businessListView">
                     <ListView.ItemTemplate>
                         <DataTemplate>
