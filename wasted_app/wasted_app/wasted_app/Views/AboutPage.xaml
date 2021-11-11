@@ -10,7 +10,7 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Color x:Key="Accent">#89CFF0</Color>
+            <Color x:Key="Accent">#004a3a</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -19,22 +19,18 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-                    <Image Source="racoon.png" VerticalOptions="Center" HeightRequest="64" />
-                </ContentView>
-            </StackLayout>
-        </StackLayout>
         <ScrollView Grid.Row="1">
             <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                <Image Source="wasted.png"/>
                 <Label Text="About us" FontSize="Title"/>
-                <Label Text="We are 2nd year Vilnius University students of MIF faculty and we present to you our idea of not wasting ever again!" FontSize="16" Padding="0,0,0,0"/>
+                <Label Text="We are 2nd year Vilnius University students of Mathematics and Informatics Faculty and we present you our solution to never waste food again!" FontSize="16" />
+                <Label Text="In this app you can purchase products and prepared meals for a cheaper price." FontSize="16" Padding="0,24,0,0"/>
+                <Label Text="Developers of this application: &#10;&#8226; Augustina Petraitytė &#10;&#8226; Jokūbas Vaišnoras &#10;&#8226; Kristupas Norvaiša &#10;&#8226; Tadas Sabestinas" FontSize="16" Padding="0,24,0,0"/>
                 <Label FontSize="16" Padding="0,24,0,0">
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="Our github link:"/>
+                                <Span Text="Our github link: "/>
                                 <Span Text="https://github.com/JokubasVaisnoras/Wasted" FontAttributes="Bold"/>
                             </FormattedString.Spans>
                         </FormattedString>
