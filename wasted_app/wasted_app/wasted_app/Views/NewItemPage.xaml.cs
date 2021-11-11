@@ -21,7 +21,7 @@ namespace wasted_app.Views
             BindingContext = new NewItemViewModel();
         }
 
-        void OnModeChosen(object sender, EventArgs args)
+        private void OnModeChosen(object sender, EventArgs args)
         {
             Picker typePicker = (Picker)sender;
 
@@ -32,40 +32,6 @@ namespace wasted_app.Views
             {
                 case 0: //product
                     type2Picker.IsEnabled = true;
-
-                    /*try
-                    {
-                        
-                        // Directory.GetCurrentDirectory().ToString();
-                        // List<string> possibleTypes = new List<string>();
-
-                        //string path = Path.Combine(Directory.GetCurrentDirectory(), "..");
-
-                        //string path = Directory.GetParent(Directory.GetCurrentDirectory()).FullName;//ToString();
-
-                        //string path = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName;
-
-                        //string path = Path.GetFullPath(@"/ProductTypes.txt");
-
-                        
-
-                        //DisplayAlert("", path, "", "Cancel");
-
-                        /*using (StreamReader sr = new StreamReader(Path.Combine(path, "ProductTypes.txt")))
-                        {
-                            string line;
-
-                            while ((line = sr.ReadLine()) != null)
-                            {
-                                type2Picker.Items.Add(line);
-                            }
-                        }*/ /*
-                    }
-                    catch (Exception)
-                    {
-                        DisplayAlert("Error", "Cannot recover any data.", "", "Cancel");
-                    }
-                    */
 
                     var assembly = IntrospectionExtensions.GetTypeInfo(typeof(NewItemPage)).Assembly;
                     Stream stream = assembly.GetManifestResourceStream("wasted_app.Views.ProductTypes.txt");

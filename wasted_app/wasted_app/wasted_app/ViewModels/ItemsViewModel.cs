@@ -70,11 +70,6 @@ namespace wasted_app.ViewModels
                         Items.Add((Item)item);
                     }
                 }
-                /*IFormatter formatter = new BinaryFormatter();
-                string txtpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "items.txt");
-                Stream stream = new FileStream(txtpath, FileMode.Open, FileAccess.Read, FileShare.Read);
-                items = (Item)formatter.Deserialize(stream);
-                stream.Close();*/
             }
             catch (Exception ex)
             {

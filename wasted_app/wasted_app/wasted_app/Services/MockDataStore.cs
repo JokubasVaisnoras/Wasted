@@ -21,17 +21,10 @@ namespace wasted_app.Services
 
         public async Task<bool> AddItemAsync(Item item)
         {
-            /// add to file
-            //items.Add(item);
             var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "ItemsDatabase.db");
             var db = new SQLiteConnection(dbpath);
             db.CreateTable<Item>();
-            db.Insert(item);
-
-            /*IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream(txtpath, FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(stream, item);
-            stream.Close();*/
+            db.Insert(item);        
 
             return await Task.FromResult(true);
         }
