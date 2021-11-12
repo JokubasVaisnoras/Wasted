@@ -39,14 +39,24 @@ namespace wasted_app.Views
             var db = new SQLiteConnection(dbpath);
             db.CreateTable<RegUserTable>();
 
-            var item = new RegUserTable()
-            {
-                Username = EntryUsername.Text,
-                Password = EntryUserPassword.Text,
-                Email = EntryUserEmail.Text,
-                PhoneNumber = EntryUserPhoneNumber.Text
+            /*
+             var iteem = new Lazy<RegUserTable>(() =>
+             new RegUserTable
+             {
+                 Email = EntryUserEmail.Text,
+                 Username = EntryUsername.Text,
+                 Password = EntryUserPassword.Text,
+                 PhoneNumber = EntryUserPhoneNumber.Text
+             });
+             var item = iteem.Value;
+            */
 
-            };
+            Lazy<RegUserTable> iteeem = new Lazy<RegUserTable>();
+            iteeem.Value.Email = EntryUserEmail.Text;
+            iteeem.Value.Password = EntryUserPassword.Text;
+            iteeem.Value.PhoneNumber = EntryUserPhoneNumber.Text;
+            iteeem.Value.Username = EntryUsername.Text;
+            var item = iteeem.Value;
 
             db.Insert(item);
             Device.BeginInvokeOnMainThread(async () =>
