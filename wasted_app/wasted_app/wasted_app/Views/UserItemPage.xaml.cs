@@ -40,15 +40,15 @@ namespace wasted_app.Views
                 searchTerm = string.Empty;
             }
             searchTerm = searchTerm.ToLowerInvariant();
-            var sourceItems = _viewModel.Items;
-            var editedsourceItems = sourceItems.ToList();
-            var filteredItems = sourceItems.Where(value => 
+            //var sourceItems = _viewModel.Items;
+            var editedsourceItems = _viewModel.Items.ToList();
+            var filteredItems = _viewModel.Items.Where(value => 
             value.Name.ToLowerInvariant().Contains(searchTerm)).ToList();
 
-            if (string.IsNullOrWhiteSpace(searchTerm))
+            /*if (string.IsNullOrWhiteSpace(searchTerm))
             {
-                filteredItems = sourceItems.ToList();
-            }
+                filteredItems = _viewModel.Items.ToList();
+            }*/
                 foreach(var value in editedsourceItems)
                 {
                     if(!filteredItems.Contains(value))
