@@ -40,7 +40,7 @@ namespace wasted_app.Views
             db.CreateTable<RegUserTable>();
 
             /*
-             var iteem = new Lazy<RegUserTable>(() =>
+             var lazyItem = new Lazy<RegUserTable>(() =>
              new RegUserTable
              {
                  Email = EntryUserEmail.Text,
@@ -48,15 +48,15 @@ namespace wasted_app.Views
                  Password = EntryUserPassword.Text,
                  PhoneNumber = EntryUserPhoneNumber.Text
              });
-             var item = iteem.Value;
+             var item = lazyItem.Value;
             */
 
-            Lazy<RegUserTable> iteeem = new Lazy<RegUserTable>();
-            iteeem.Value.Email = EntryUserEmail.Text;
-            iteeem.Value.Password = EntryUserPassword.Text;
-            iteeem.Value.PhoneNumber = EntryUserPhoneNumber.Text;
-            iteeem.Value.Username = EntryUsername.Text;
-            var item = iteeem.Value;
+            Lazy<RegUserTable> lazyItem = new Lazy<RegUserTable>();
+            lazyItem.Value.Email = EntryUserEmail.Text;
+            lazyItem.Value.Password = EntryUserPassword.Text;
+            lazyItem.Value.PhoneNumber = EntryUserPhoneNumber.Text;
+            lazyItem.Value.Username = EntryUsername.Text;
+            var item = lazyItem.Value;
 
             db.Insert(item);
             Device.BeginInvokeOnMainThread(async () =>
