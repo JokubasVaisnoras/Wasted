@@ -22,7 +22,7 @@ namespace wasted_app.Views
         string getchargedID;
         string refundID;
 
-        public void NewEventHandler(Object sender, EventArgs e)
+        public async void NewEventHandler(Object sender, EventArgs e)
         {
             StripeConfiguration.SetApiKey("sk_test_51Js96bAopWd7zpBVyXzgmNQb5aqZFfei7wYFgsmni8rdMh5rS3Ddej3KlNoZlGWDO78Qd0FXJwXpAu4vL0pSJOHa00FTfRRirH");
 
@@ -72,6 +72,7 @@ namespace wasted_app.Views
             Stripe.Charge charge = service1.Create(chargeoptions); // This will do the Payment
 
             getchargedID = charge.Id; // Not needed
+            await Navigation.PushAsync(new PaymentSucessPage());
         }
     }        
 }
