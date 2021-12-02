@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using wasted_app.Views;
 
-namespace ProjectTests.Test.ViewFolderTests
+namespace TestProject.Test.UserItemTests
 {
     [TestFixture]
-    class UserItemPageTest
+    class UserItemPage_Test
     {
         [Test]
         public void UserItemPage_SearchBar_Test()
         {
-            var userItem = new UserItemPage();
-           
+            var userSearch = new UserItemPage();
         }
     }
 }
