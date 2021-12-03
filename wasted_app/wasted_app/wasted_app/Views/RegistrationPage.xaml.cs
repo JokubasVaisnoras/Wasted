@@ -8,6 +8,7 @@ using SQLite;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using wasted_app.Tables;
+using wasted_app.Database;
 
 namespace wasted_app.Views
 {
@@ -55,7 +56,7 @@ namespace wasted_app.Views
         }
 
 
-        void Handle_Clicked(object sender, System.EventArgs e)
+        async void Handle_Clicked(object sender, System.EventArgs e)
         {
             //for Contacts
             if (EntryUserPhoneNumber.Text == null)
@@ -105,10 +106,6 @@ namespace wasted_app.Views
                 return;
             }
 
-            var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "UserDatabase.db");
-            var db = new SQLiteConnection(dbpath);
-            db.CreateTable<RegUserTable>();
-
             var item = new RegUserTable()
             {
                 Username = EntryUsername.Text,
@@ -117,7 +114,12 @@ namespace wasted_app.Views
                 PhoneNumber = EntryUserPhoneNumber.Text
             };
 
-            db.Insert(item);
+            using (var db = new DatabaseContext())
+            {
+                db.Add(item);
+                await db.SaveChangesAsync();
+            }
+
             Device.BeginInvokeOnMainThread(async () =>
             {
                 var result = await this.DisplayAlert("Congratulations!", "User is registered", "Yes", "Cancel");
