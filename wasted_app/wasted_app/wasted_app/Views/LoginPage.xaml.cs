@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -5,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using wasted_app.Database;
 using wasted_app.Tables;
 using wasted_app.ViewModels;
 using Xamarin.Essentials;
@@ -26,11 +28,10 @@ namespace wasted_app.Views
             await Navigation.PushAsync(new RegistrationPage());
         }
 
-        void Handle_Clicked_1(object sender, System.EventArgs e)
+        async void Handle_Clicked_1(object sender, System.EventArgs e)
         {
-            var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "UserDatabase.db");
-            var db = new SQLiteConnection(dbpath);
-            var myquery = db.Table<RegUserTable>().Where(u => u.Username.Equals(EntryUser.Text) && u.Password.Equals(EntryPassword.Text)).FirstOrDefault();
+            var db = new DatabaseContext();
+            var myquery = await db.Users.FirstOrDefaultAsync(u => u.Username.Equals(EntryUser.Text) && u.Password.Equals(EntryPassword.Text));
 
             if (myquery != null)
             {
