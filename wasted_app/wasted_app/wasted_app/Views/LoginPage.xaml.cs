@@ -30,19 +30,23 @@ namespace wasted_app.Views
 
         async void Handle_Clicked_1(object sender, System.EventArgs e)
         {
-            var db = new DatabaseContext();
+            
+            var db = new UserContext();
             var myquery = await db.Users.FirstOrDefaultAsync(u => u.Username.Equals(EntryUser.Text) && u.Password.Equals(EntryPassword.Text));
 
             if (myquery != null)
             {
                 var obj = App.Current as App;
-
+               
                 obj.username = myquery.Username;
                 obj.email = myquery.Email;
-                obj.phonenumber = myquery.PhoneNumber;
+                //obj.phonenumber = myquery.PhoneNumber;
+                obj.id = myquery.UserId;
 
                 App.Current.MainPage = new AppShell();
             }
+
+
 
             else
             {

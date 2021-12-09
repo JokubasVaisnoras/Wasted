@@ -3,46 +3,51 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              x:Class="wasted_app.Views.BusinessPage">
     <ContentPage.Content>
-        <ScrollView>
+       
             <StackLayout>
-                <Grid Margin="20,0,20,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
+            <Grid Margin="20,0,20,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-                    <StackLayout Grid.Row="0">
-                        <Entry Placeholder="Name of your company" FontSize="16" x:Name="EntryUsername"/>
-                    </StackLayout>
-                    <StackLayout Grid.Row="1">
-                        <Entry Placeholder="What produce are you selling?" FontSize="16" x:Name="EntryUserPassword"/>
-                    </StackLayout>
-                    <StackLayout Grid.Row="2">
-                        <Entry Placeholder="Email" FontSize="16" x:Name="EntryUserEmail"/>
-                    </StackLayout>
-                    <StackLayout Grid.Row="3">
-                        <Entry Placeholder="PhoneNumber" FontSize="16" x:Name="EntryUserPhoneNumber"/>
-                    </StackLayout>
-                    <StackLayout Grid.Row="4">
-                        <Button Text="Register" HorizontalOptions="CenterAndExpand" WidthRequest="100" TextColor="White" BackgroundColor="{StaticResource Primary}" Clicked="Handle_Clicked"/>
-                    </StackLayout>
+                <StackLayout Grid.Row="0">
+                    <Entry Placeholder="Name of your company" FontSize="16" x:Name="EntryUsername"/>
+                </StackLayout>
+                <StackLayout Grid.Row="1">
+                    <Entry Placeholder="What produce are you selling?" FontSize="16" x:Name="EntryUserPassword"/>
+                </StackLayout>
+                <StackLayout Grid.Row="2">
+                    <Entry Placeholder="Email" FontSize="16" x:Name="EntryUserEmail"/>
+                </StackLayout>
+                <StackLayout Grid.Row="3">
+                    <Entry Placeholder="PhoneNumber" FontSize="16" x:Name="EntryUserPhoneNumber"/>
+                </StackLayout>
+                <StackLayout Grid.Row="4">
+                    <Button Text="Register" HorizontalOptions="CenterAndExpand" WidthRequest="100" TextColor="White" BackgroundColor="{StaticResource Primary}" Clicked="Handle_Clicked"/>
+                </StackLayout>
 
-                </Grid>
-                <Label Padding="15,24,30,0" Text="Project participants:" FontSize="Large" FontAttributes="Bold" TextColor="{StaticResource Primary}"/>
-                <ListView x:Name="businessListView">
+            </Grid>
+            <Label Padding="15,24,30,0" Text="Project participants:" FontSize="Large" FontAttributes="Bold" TextColor="{StaticResource Primary}"/>
+            <ScrollView>
+                <StackLayout>
+                    <ListView x:Name="businessListView">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <TextCell Text="{Binding Username}"
                               Detail="{Binding Password}"  TextColor="#000000"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>
+                    </ListView>
+                </StackLayout>
+                </ScrollView>
 
-            </StackLayout>
-        </ScrollView>
+
+                </StackLayout>
+       
         
         
 

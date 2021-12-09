@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using wasted_app.Tables;
 using wasted_app.Database;
+using Microsoft.EntityFrameworkCore;
 
 namespace wasted_app.Views
 {
@@ -89,18 +90,52 @@ namespace wasted_app.Views
                 return;
             }
 
+            int y = 0;
+            if (Check1.IsChecked || Check2.IsChecked)
+                y = 1;
+
+
             var item = new RegUserTable()
             {
                 Username = EntryUsername.Text,
                 Password = EntryUserPassword.Text,
                 Email = EntryUserEmail.Text,
-                PhoneNumber = EntryUserPhoneNumber.Text
+                PhoneNumber = EntryUserPhoneNumber.Text,
+                Newsletter = y
             };
 
-            using (var db = new DatabaseContext())
+            var dbUser = new UserContext();
+            dbUser.Add(item);
+            await dbUser.SaveChangesAsync();
+
+            var myquery = await dbUser.Users.FirstOrDefaultAsync(u => u.Username.Equals(EntryUsername.Text) && u.Password.Equals(EntryUserPassword.Text));
+
+            if (Check1.IsChecked)
             {
-                db.Add(item);
-                await db.SaveChangesAsync();
+                using (var db = new NewsletterContext())
+                {
+                    var newNewsletter = new Newsletter
+                    {
+                        UserId = myquery.UserId,
+                        Name = "Software update blog"
+                    };
+                    db.Add(newNewsletter);
+                    await db.SaveChangesAsync();
+                }
+            }
+
+            if (Check2.IsChecked)
+            {
+                using (var db = new NewsletterContext())
+                {
+                    var newNewsletter = new Newsletter
+                    {
+                        UserId = myquery.UserId,
+                        Name = "News about produce"
+                    };
+                    db.Add(newNewsletter);
+                    await db.SaveChangesAsync();
+                }
             }
 
             Device.BeginInvokeOnMainThread(async () =>
