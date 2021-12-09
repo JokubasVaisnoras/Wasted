@@ -4,6 +4,7 @@ BackgroundColor="#EEEEEE"
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 x:Class="wasted_app.Views.DetailsPage">
     <ContentPage.Content>
+        
         <StackLayout Padding="40" Spacing="30">
             <Label Text="User Details" TextColor="#004a3a" FontSize="25" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" />
             <StackLayout Spacing="25">
@@ -12,8 +13,8 @@ x:Class="wasted_app.Views.DetailsPage">
                     <Label x:Name="username" HorizontalOptions="FillAndExpand" TextColor="Gray" />
                 </StackLayout>
                 <StackLayout>
-                    <Label Text="Mobile Number:" Font="18" HorizontalOptions="FillAndExpand" TextColor="Black" />
-                    <Label x:Name="phonenumber" HorizontalOptions="FillAndExpand" TextColor="Gray" />
+                    <Label Text="User ID:" Font="18" HorizontalOptions="FillAndExpand" TextColor="Black" />
+                    <Label x:Name="id" HorizontalOptions="FillAndExpand" TextColor="Gray" />
                 </StackLayout>
                 <StackLayout>
                     <Label Text="Email Address:" Font="18" HorizontalOptions="FillAndExpand" TextColor="Black" />
@@ -21,6 +22,9 @@ x:Class="wasted_app.Views.DetailsPage">
                 </StackLayout>
             </StackLayout>
             <Button Text="Logout" TextColor="#004a3a" BackgroundColor="Transparent" WidthRequest="100" FontAttributes="Bold" BorderColor="#533F95" BorderWidth="1" BorderRadius="10" HorizontalOptions="EndAndExpand" Clicked="OnMenuItemClicked" />
+            
+            
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage> 

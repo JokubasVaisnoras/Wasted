@@ -6,11 +6,11 @@ using System;
 
 namespace wasted_app.Database
 {
-    public class DatabaseContext : DbContext
+    public class UserContext : DbContext
     {
         public virtual DbSet<RegUserTable> Users { get; set; }
 
-        public DatabaseContext()
+        public UserContext()
         {
             SQLitePCL.Batteries_V2.Init();
 
@@ -19,7 +19,7 @@ namespace wasted_app.Database
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Users.db");
+            string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Users0.db");
 
             optionsBuilder
                 .UseSqlite($"Filename={dbPath}");

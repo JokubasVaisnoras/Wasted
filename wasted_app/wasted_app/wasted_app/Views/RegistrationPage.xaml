@@ -26,12 +26,21 @@
                     <StackLayout Grid.Row="3">
                         <Entry Placeholder="PhoneNumber" FontSize="16" x:Name="EntryUserPhoneNumber"/>
                     </StackLayout>
-                            <StackLayout Grid.Row="4">
-                        <Button Text="Register" HorizontalOptions="CenterAndExpand" WidthRequest="100" TextColor="White" BackgroundColor="{StaticResource Primary}" Clicked="Handle_Clicked"/>
-                            </StackLayout>
+                    <StackLayout Grid.Row="4">
+                        <CheckBox x:Name="Check1" />
+                        <Label Text="I agree to receive software update blog" ></Label>
+                    </StackLayout>
+                    <StackLayout Grid.Row="5">
+                        <CheckBox x:Name="Check2"  />
+                        <Label Text="I agree to receive news about the produce"></Label>
+                    </StackLayout>
+                    <StackLayout Grid.Row="6">
+                        <Button Text="Register" HorizontalOptions="EndAndExpand" WidthRequest="100" TextColor="White" BackgroundColor="{StaticResource Primary}" Clicked="Handle_Clicked"/>
+                    </StackLayout>
+
 
                 </Grid>
-
+                
             </StackLayout>
         </ScrollView>
         

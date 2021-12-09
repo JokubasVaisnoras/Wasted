@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="wasted_app.Views.NewsletterPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Padding="15,24,30,0" Text="Newsletter subscriber count:" FontSize="Medium" FontAttributes="Bold" TextColor="{StaticResource Primary}"/>
+            <Label x:Name="sumUser" Padding="15,2,30,0" Font="18" HorizontalOptions="FillAndExpand" TextColor="Black" />
+            
+            <Label Padding="15,24,30,0" Text="Software blog subscribers:" FontSize="Medium" FontAttributes="Bold" TextColor="{StaticResource Primary}"/>
+            <ScrollView>
+                <StackLayout>
+                    <ListView x:Name="groupedList1View">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Username}"
+                              TextColor="#000000"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+                    </StackLayout>
+                </ScrollView>
+                    <Label Padding="15,2,30,0" Text="Produce news subscribers:" FontSize="Medium" FontAttributes="Bold" TextColor="{StaticResource Primary}"/>
+            <ScrollView>
+                <StackLayout>
+                    <ListView x:Name="groupedList2View">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Username}"
+                                TextColor="#000000"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+                    </StackLayout>
+                </ScrollView>
+                        <Label Text="Congratulations!" TextColor="#004a3a" FontSize="25" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" />
+        <Label Text="Thank you for being our first newsletter subscriber!" TextColor="#004a3a" FontSize="15" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" />
+        <Label Text="Reach out to our team to receive your prize" TextColor="#004a3a" FontSize="13" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" />
+       
+            <Label x:Name="username" Font="18" HorizontalOptions="FillAndExpand" TextColor="Black" />
+            <Label x:Name="id" Font="14" HorizontalOptions="FillAndExpand" TextColor="Gray" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -8,6 +8,7 @@ using SQLite;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using wasted_app.Tables;
+using wasted_app.Database;
 
 namespace wasted_app.Views
 {
@@ -22,6 +23,7 @@ namespace wasted_app.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
+
             var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "BusinessDatabase.db");
             
             using (var db = new SQLiteConnection(dbpath))

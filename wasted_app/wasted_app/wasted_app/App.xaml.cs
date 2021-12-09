@@ -10,7 +10,8 @@ namespace wasted_app
     {
         public string username { get; set; }
         public string email { get; set; }
-        public string phonenumber { get; set; }
+        //public string phonenumber { get; set; }
+        public Guid id { get; set; }
 
         public App()
         {
