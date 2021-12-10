@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 using wasted_app.Models;
+using wasted_app.Services;
 using wasted_app.Views;
 using Xamarin.Forms;
 
@@ -58,17 +59,12 @@ namespace wasted_app.ViewModels
             {
                 Items.Clear();
                 var items = await DataStore.GetItemsAsync(true);
-                
-                var dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "ItemsDatabase.db");
 
-                using (var db = new SQLiteConnection(dbpath))
+                DBAgent databaseAgent = new DBAgent();
+                var itemsList = databaseAgent.ShowItems();
+                foreach (var item in itemsList)
                 {
-                    db.CreateTable<Item>();
-                    var itemsList = db.Table<Item>().ToList();
-                    foreach (Object item in itemsList)
-                    {
-                        Items.Add((Item)item);
-                    }
+                    Items.Add(item);
                 }
             }
             catch (Exception ex)

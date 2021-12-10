@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 using wasted_app.Models;
+using wasted_app.Services;
 using Xamarin.Forms;
 
 namespace wasted_app.ViewModels
@@ -9,6 +10,8 @@ namespace wasted_app.ViewModels
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
     public class ItemDetailViewModel : BaseViewModel
     {
+        //public Command DeleteItemCommand { get; }
+
         private string itemId;
         private string name;
         private string description;
@@ -72,6 +75,17 @@ namespace wasted_app.ViewModels
                 LoadItemId(value);
             }
         }
+
+        /*public ItemDetailViewModel()
+        {
+            DeleteItemCommand = new Command(DeleteItem);
+        }
+
+        private async void DeleteItem(object obj)
+        {
+            DBAgent databaseAgent = new DBAgent();
+            await databaseAgent.DeleteItem();
+        }*/
 
         public async void LoadItemId(string itemId)
         {
