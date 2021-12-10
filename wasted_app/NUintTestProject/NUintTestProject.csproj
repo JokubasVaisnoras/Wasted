@@ -14,7 +14,7 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="C:\wasted_project2\Wasted\wasted_app\wasted_app\wasted_app\wasted_app.csproj"/>
+		<ProjectReference Include="D:\IT_projektai\GitHub\Wasted\wasted_app\wasted_app\wasted_app\wasted_app.csproj"/>
 	</ItemGroup>
 
 </Project>
