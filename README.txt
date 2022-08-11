@@ -1,2 +1,3 @@
-hello
-heloo jacoob!!!
+-This is a Vilnius University project for Software Engineering 1 course
+-It was made with Xamarin and C#
+-The purpose of the app is to sell food that companies would throw out :)
